@@ -13,5 +13,4 @@ class Port {
   }
 }
 
-// export { Ship, Port };
-(module.exports = Ship), Port;
+module.exports = { Ship, Port };
