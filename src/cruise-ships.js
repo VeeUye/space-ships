@@ -1,6 +1,11 @@
 class Ship {
-  constructor(origin) {
-    this.origin = origin;
+  constructor(homePort) {
+    this.homePort = homePort;
+    this.dockedAtHomePort = true;
+  }
+
+  sail() {
+    this.dockedAtHomePort = false;
   }
 }
 
