@@ -7,5 +7,11 @@ class Ship {
     this.homePort = false;
   }
 }
+class Port {
+  constructor(portName) {
+    this.name = portName;
+  }
+}
 
-module.exports = Ship;
+// export { Ship, Port };
+(module.exports = Ship), Port;
