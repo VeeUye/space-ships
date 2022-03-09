@@ -5,7 +5,7 @@ describe("constructor", () => {
   it("returns an object", () => {
     expect(new Ship()).toBeInstanceOf(Object);
     expect(ship.homePort).toBe("Manchester");
-    expect(ship.dockedAtHomePort).toEqual(true);
+    expect(ship.homePort).toBeTruthy();
   });
 });
 
@@ -15,5 +15,5 @@ describe("sail", () => {
     expect(ship.sail).toBeInstanceOf(Function);
   });
   ship.sail();
-  expect(ship.dockedAtHomePort).toEqual(false);
+  expect(ship.homePort).toBeFalsy();
 });
