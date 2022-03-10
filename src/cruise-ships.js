@@ -6,7 +6,9 @@ class Ship {
   sailShip() {
     this.currentPort = false;
   }
-  dockAtPort() {}
+  dockAtPort(port) {
+    this.currentPort = port.name;
+  }
 }
 class Port {
   constructor(portName) {
