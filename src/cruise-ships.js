@@ -7,12 +7,13 @@ class Ship {
     this.currentPort = false;
   }
   dockAtPort(port) {
-    this.currentPort = port.name;
+    this.currentPort = port;
   }
 }
+
 class Port {
-  constructor(portName) {
-    this.name = portName;
+  constructor(port) {
+    this.portName = port;
   }
 }
 

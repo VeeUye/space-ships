@@ -27,5 +27,5 @@ describe("docking at a port", () => {
 
   const newOrleans = new Port("New Orleans");
   ship.dockAtPort(newOrleans);
-  expect(ship.currentPort).toBe("New Orleans");
+  expect(ship.currentPort).toBe(newOrleans);
 });

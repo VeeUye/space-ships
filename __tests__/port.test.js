@@ -6,6 +6,6 @@ describe("constructor", () => {
     expect(new Port()).toBeInstanceOf(Object);
   });
   it("port has a name", () => {
-    expect(port.name).toBe("Todmorden");
+    expect(port.portName).toBe("Todmorden");
   });
 });
