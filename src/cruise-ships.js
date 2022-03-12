@@ -17,4 +17,8 @@ class Port {
   }
 }
 
-module.exports = { Ship, Port };
+class Itinerary {
+  constructor() {}
+}
+
+module.exports = { Ship, Port, Itinerary };
