@@ -18,7 +18,9 @@ class Port {
 }
 
 class Itinerary {
-  constructor() {}
+  constructor() {
+    this.ports = true;
+  }
 }
 
 module.exports = { Ship, Port, Itinerary };
