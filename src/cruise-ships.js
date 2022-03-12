@@ -1,28 +1,31 @@
-class Ship {
-  constructor(itinerary) {
-    this.currentPort = null;
-    this.previousPort = null;
-  }
+// class Port {
+//   constructor(port) {
+//     this.portName = port;
+//   }
+// }
 
-  sailShip() {
-    this.previousPort = this.currentPort;
-  }
+// class Itinerary {
+//   constructor(ports) {
+//     this.ports = ports;
+//   }
+// }
 
-  dockAtPort(port) {
-    this.currentPort = port;
-  }
-}
+// class Ship {
+//   constructor(itinerary) {
+//     this.itinerary = itinerary;
+//     this.currentPort = itinerary.ports;
+//     this.previousPort = null;
+//     // console.log("itinerary", itinerary);
+//     // console.log("itinerary.ports", itinerary.ports);
+//   }
 
-class Port {
-  constructor(port) {
-    this.portName = port;
-  }
-}
+//   sailShip() {
+//     this.previousPort = this.currentPort;
+//   }
 
-class Itinerary {
-  constructor(port1, port2) {
-    this.ports = [port1, port2];
-  }
-}
+//   dockAtPort(port) {
+//     this.currentPort = port;
+//   }
+// }
 
-module.exports = { Ship, Port, Itinerary };
+// module.exports = { Ship, Port, Itinerary };
