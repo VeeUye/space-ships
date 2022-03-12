@@ -1,12 +1,13 @@
 const { Ship, Port, Itinerary } = require("../src/cruise-ships");
 
-describe("constructor", () => {
+describe("Ship", () => {
   const port = new Port("Manchester");
   const ship = new Ship(port);
   it("instantiates a ship", () => {
     expect(new Ship()).toBeInstanceOf(Object);
     expect(ship.currentPort).toBe(port);
     expect(ship.currentPort).toBeTruthy();
+    expect(ship.previousPort).toBeNull();
   });
 });
 
