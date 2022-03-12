@@ -1,6 +1,6 @@
 class Ship {
-  constructor(currentPort) {
-    this.currentPort = currentPort;
+  constructor(itinerary) {
+    this.currentPort = null;
     this.previousPort = null;
   }
 
@@ -20,8 +20,8 @@ class Port {
 }
 
 class Itinerary {
-  constructor() {
-    this.ports = [];
+  constructor(port1, port2) {
+    this.ports = [port1, port2];
   }
 }
 

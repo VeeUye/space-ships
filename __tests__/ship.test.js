@@ -1,19 +1,21 @@
 const { Ship, Port, Itinerary } = require("../src/cruise-ships");
 
 describe("Ship", () => {
-  const port = new Port("Manchester");
+  const ceresStation = new Port("Ceres Station");
+  const medinaStation = new Port("MedinaStation");
+  const itinerary = new Itinerary(ceresStation, medinaStation);
   const ship = new Ship(itinerary);
-  const itinerary = new Itinerary();
   it("instantiates a ship", () => {
     expect(new Ship()).toBeInstanceOf(Object);
-    expect(ship.currentPort).toBe(port);
+    expect(ship.currentPort).toBeNull();
     expect(ship).toHaveProperty("currentPort");
     expect(ship.previousPort).toBeNull();
+    console.log(ship.currentPort);
   });
 });
 
 describe("sailing", () => {
-  const port = new Port("Manchester");
+  const port = new Port("Earth");
   const ship = new Ship(port);
   it("sets ship sailing", () => {
     expect(ship.sailShip).toBeInstanceOf(Function);
@@ -23,13 +25,13 @@ describe("sailing", () => {
 });
 
 describe("docking", () => {
-  const port = new Port("Manchester");
+  const port = new Port("Earth");
   const ship = new Ship(port);
   it("can dock at a different port", () => {
     expect(ship.dockAtPort).toBeInstanceOf(Function);
 
-    const newOrleans = new Port("New Orleans");
-    ship.dockAtPort(newOrleans);
-    expect(ship.currentPort).toBe(newOrleans);
+    const mars = new Port("Mars");
+    ship.dockAtPort(mars);
+    expect(ship.currentPort).toBe(mars);
   });
 });
