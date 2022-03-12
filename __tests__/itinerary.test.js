@@ -5,5 +5,6 @@ describe("Itineray", () => {
   it("instantiates an itinerary", () => {
     expect(itinerary).toBeInstanceOf(Object);
     expect(itinerary).toHaveProperty("ports");
+    expect(itinerary.ports).toEqual([]);
   });
 });

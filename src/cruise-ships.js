@@ -5,8 +5,9 @@ class Ship {
   }
 
   sailShip() {
-    this.currentPort = false;
+    this.previousPort = this.currentPort;
   }
+
   dockAtPort(port) {
     this.currentPort = port;
   }
@@ -20,7 +21,7 @@ class Port {
 
 class Itinerary {
   constructor() {
-    this.ports = true;
+    this.ports = [];
   }
 }
 
