@@ -9,9 +9,11 @@ class Ship {
   sailShip() {
     this.previousPort = this.currentPort;
   }
-
-  dockAtPort(port) {
-    this.currentPort = port;
+  // previously passed in port into dockAtPort
+  dockAtPort() {
+    let nextPortIndex = this.itinerary.ports.indexOf(this.currentPort);
+    if (nextPortIndex >= 0 && nextPortIndex < this.itinerary.ports.length - 1)
+      this.currentPort = this.itinerary.ports[nextPortIndex + 1];
   }
 }
 module.exports = Ship;

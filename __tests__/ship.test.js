@@ -48,8 +48,15 @@ describe("Class Ship", () => {
 
     it("can dock at a different port", () => {
       expect(ship.dockAtPort).toBeInstanceOf(Function);
-      ship.dockAtPort(medinaStation);
+      ship.dockAtPort();
       expect(ship.currentPort).toBe(medinaStation);
+      console.log(ship.currentPort);
     });
+
+    // it("can dock at a different port", () => {
+    //   expect(ship.dockAtPort).toBeInstanceOf(Function);
+    //   ship.dockAtPort(medinaStation);
+    //   expect(ship.currentPort).toBe(medinaStation);
+    // });
   });
 });
