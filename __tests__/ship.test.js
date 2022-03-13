@@ -44,12 +44,14 @@ it("can dock at a different port", () => {
   expect(ship.currentPort).toBe(medinaStation);
 });
 
-xit("it can't sail past the last port in itinerary", () => {
+it("it can't sail past the last port in itinerary", () => {
   const ceresStation = new Port("Ceres Station");
   const medinaStation = new Port("Medina Station");
   const itinerary = new Itinerary([ceresStation, medinaStation]);
   const ship = new Ship(itinerary);
   ship.sail();
   ship.dock();
-  expect();
+  expect(() => ship.sail()).toThrowError(
+    "You've sailed off the edge of the world and it's turtles all the way down"
+  );
 });

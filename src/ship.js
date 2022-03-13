@@ -6,6 +6,13 @@ class Ship {
   }
 
   sail() {
+    if (
+      this.currentPort === this.itinerary.ports[this.itinerary.ports.length - 1]
+    ) {
+      throw new Error(
+        "You've sailed off the edge of the world and it's turtles all the way down"
+      );
+    }
     this.previousPort = this.currentPort;
     this.currentPort = null;
   }
