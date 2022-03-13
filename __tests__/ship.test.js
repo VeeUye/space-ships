@@ -1,4 +1,3 @@
-// const { Ship, Port, Itinerary } = require("../src/cruise-ships");
 const Ship = require("../src/ship");
 const Port = require("../src/port");
 const Itinerary = require("../src/itinerary");
@@ -28,22 +27,29 @@ it("sets ship sailing", () => {
   const medinaStation = new Port("Medina Station");
   const itinerary = new Itinerary([ceresStation, medinaStation]);
   const ship = new Ship(itinerary);
-  expect(ship.sailShip).toBeInstanceOf(Function);
+  expect(ship.sail).toBeInstanceOf(Function);
 
-  ship.sailShip();
+  ship.sail();
   expect(ship.previousPort).toEqual(ceresStation);
 });
-// });
-
-// describe("docking", () => {
 
 it("can dock at a different port", () => {
   const ceresStation = new Port("Ceres Station");
   const medinaStation = new Port("Medina Station");
   const itinerary = new Itinerary([ceresStation, medinaStation]);
   const ship = new Ship(itinerary);
-  expect(ship.dockAtPort).toBeInstanceOf(Function);
-  ship.sailShip();
-  ship.dockAtPort();
+  expect(ship.dock).toBeInstanceOf(Function);
+  ship.sail();
+  ship.dock();
   expect(ship.currentPort).toBe(medinaStation);
+});
+
+xit("it can't sail past the last port in itinerary", () => {
+  const ceresStation = new Port("Ceres Station");
+  const medinaStation = new Port("Medina Station");
+  const itinerary = new Itinerary([ceresStation, medinaStation]);
+  const ship = new Ship(itinerary);
+  ship.sail();
+  ship.dock();
+  expect();
 });

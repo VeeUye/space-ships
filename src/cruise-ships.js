@@ -19,11 +19,11 @@
 //     // console.log("itinerary.ports", itinerary.ports);
 //   }
 
-//   sailShip() {
+//   sail() {
 //     this.previousPort = this.currentPort;
 //   }
 
-//   dockAtPort(port) {
+//   dock(port) {
 //     this.currentPort = port;
 //   }
 // }
