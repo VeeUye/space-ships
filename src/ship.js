@@ -16,12 +16,14 @@ class Ship {
       );
     }
     this.previousPort = this.currentPort;
+    this.previousPort.removeShip(this);
     this.currentPort = null;
   }
 
   dock() {
     let previousPortIndex = this.itinerary.ports.indexOf(this.previousPort);
     this.currentPort = this.itinerary.ports[previousPortIndex + 1];
+    this.currentPort.addShip(this);
   }
 }
 module.exports = Ship;

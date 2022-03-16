@@ -38,6 +38,7 @@ describe("ship class", () => {
 
     ship.sail();
     expect(ship.previousPort).toEqual(ceresStation);
+    expect(ship.previousPort.ships).not.toContain(ship.name);
   });
 
   it("can dock at a different port", () => {
@@ -45,6 +46,7 @@ describe("ship class", () => {
     ship.sail();
     ship.dock();
     expect(ship.currentPort).toBe(medinaStation);
+    expect(ship.currentPort.ships).toContain(ship.name);
   });
 
   it("it can't sail past the last port in itinerary", () => {
