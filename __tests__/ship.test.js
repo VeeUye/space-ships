@@ -9,8 +9,22 @@ let ship;
 
 describe("ship class", () => {
   beforeEach(() => {
-    ceresStation = new Port("Ceres Station");
-    medinaStation = new Port("Medina Station");
+    // ceresStation = new Port("Ceres Station");
+    // medinaStation = new Port("Medina Station");
+    ceresStation = {
+      addShip: jest.fn(),
+      removeShip: jest.fn(),
+      name: "Ceres Station",
+      ships: []
+    };
+
+    medinaStation = {
+      addShip: jest.fn(),
+      removeShip: jest.fn(),
+      name: "Medina Station",
+      ships: []
+    };
+
     itinerary = new Itinerary([ceresStation, medinaStation]);
     ship = new Ship(itinerary);
   });
@@ -22,7 +36,7 @@ describe("ship class", () => {
   });
 
   it("gets added to port on instatiation", () => {
-    expect(ship.currentPort.ships).toContain(ship);
+    expect(ceresStation.addShip).toHaveBeenCalledWith(ship);
   });
 
   it("has a starting port", () => {
@@ -34,7 +48,7 @@ describe("ship class", () => {
 
     ship.sail();
     expect(ship.previousPort).toEqual(ceresStation);
-    expect(ship.previousPort.ships).not.toContain(ship);
+    expect(ceresStation.removeShip).toHaveBeenCalledWith(ship);
   });
 
   it("can dock at a different port", () => {
@@ -42,7 +56,7 @@ describe("ship class", () => {
     ship.sail();
     ship.dock();
     expect(ship.currentPort).toBe(medinaStation);
-    expect(ship.currentPort.ships).toContain(ship);
+    expect(medinaStation.addShip).toHaveBeenCalledWith(ship);
   });
 
   it("it can't sail past the last port in itinerary", () => {
