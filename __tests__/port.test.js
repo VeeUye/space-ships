@@ -14,7 +14,7 @@ describe("port class", () => {
   beforeEach(() => {
     tychoStation = new Port("Tycho Station");
     gannymede = new Port("Gannymede");
-    itinerary = new Itinerary([tychoStation, gannymede]);
+    // itinerary = new Itinerary([tychoStation, gannymede]);
     rocinante = jest.fn();
     scopuli = jest.fn();
     // rocinante = new Ship(itinerary, "Rocinante");
@@ -54,7 +54,6 @@ describe("port class", () => {
     tychoStation.addShip(rocinante);
     tychoStation.addShip(scopuli);
     expect(tychoStation.ships).toEqual([rocinante, scopuli]);
-    console.log(tychoStation.ships);
 
     tychoStation.removeShip(rocinante);
     expect(tychoStation.ships).toEqual([scopuli]);
