@@ -14,7 +14,8 @@ describe("port class", () => {
     tychoStation = new Port("Tycho Station");
     gannymede = new Port("Gannymede");
     itinerary = new Itinerary([tychoStation, gannymede]);
-    ship = new Ship(itinerary, "Rocinante");
+    rocinante = new Ship(itinerary, "Rocinante");
+    scopuli = new Ship(itinerary, "Scopuli");
   });
   it("instantiates a port", () => {
     expect(new Port(tychoStation)).toBeInstanceOf(Object);
@@ -26,8 +27,17 @@ describe("port class", () => {
     expect(tychoStation.ships).toBeInstanceOf(Array);
     expect(tychoStation.ships).toEqual([]);
     expect(tychoStation.addShip).toBeInstanceOf(Function);
-    tychoStation.addShip(ship);
+    expect(tychoStation.removeShip).toBeInstanceOf(Function);
+    tychoStation.addShip(rocinante);
     expect(tychoStation.ships).toHaveLength(1);
-    expect(tychoStation.ships).toEqual([ship.name]);
+    expect(tychoStation.ships).toEqual([rocinante.name]);
+    tychoStation.removeShip(rocinante);
+    expect(tychoStation.ships).toEqual([]);
+    tychoStation.addShip(rocinante);
+    tychoStation.addShip(scopuli);
+    expect(tychoStation.ships).toEqual([rocinante.name, scopuli.name]);
+    tychoStation.removeShip(rocinante);
+    expect(tychoStation.ships).toEqual([scopuli.name]);
+    console.log(tychoStation.ships);
   });
 });
