@@ -16,7 +16,7 @@ class Ship {
     this.previousPort = this.currentPort;
     this.currentPort = null;
   }
-  // previously passed in port into dock
+
   dock() {
     let nextPortIndex = this.itinerary.ports.indexOf(this.previousPort);
     if (nextPortIndex >= 0 && nextPortIndex < this.itinerary.ports.length - 1)
