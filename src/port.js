@@ -4,7 +4,7 @@ class Port {
     this.ships = [];
   }
   addShip(ship) {
-    this.ships.push(ship);
+    this.ships.push(ship.name);
   }
 }
 module.exports = Port;

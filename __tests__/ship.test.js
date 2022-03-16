@@ -12,13 +12,17 @@ describe("ship class", () => {
     ceresStation = new Port("Ceres Station");
     medinaStation = new Port("Medina Station");
     itinerary = new Itinerary([ceresStation, medinaStation]);
-    ship = new Ship(itinerary);
+    ship = new Ship(itinerary, "Rocinante");
   });
   it("can be instatiated", () => {
     expect(ship.itinerary.ports).toBeInstanceOf(Array);
     expect(ship.currentPort).toEqual(ceresStation);
     expect(ship).toHaveProperty("currentPort");
     expect(ship.previousPort).toBeNull();
+  });
+
+  it("has a name", () => {
+    expect(ship.name).toBe("Rocinante");
   });
 
   it("has a starting port", () => {
