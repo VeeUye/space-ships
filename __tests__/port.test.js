@@ -8,14 +8,18 @@ let tychoStation;
 let gannymede;
 let ship;
 let itinerary;
+let rocinante;
+let scopuli;
 
 describe("port class", () => {
   beforeEach(() => {
     tychoStation = new Port("Tycho Station");
     gannymede = new Port("Gannymede");
     itinerary = new Itinerary([tychoStation, gannymede]);
-    rocinante = new Ship(itinerary, "Rocinante");
-    scopuli = new Ship(itinerary, "Scopuli");
+    rocinante = jest.fn();
+    scopuli = jest.fn();
+    // rocinante = new Ship(itinerary, "Rocinante");
+    // scopuli = new Ship(itinerary, "Scopuli");
   });
 
   it("instantiates a port", () => {
@@ -34,7 +38,7 @@ describe("port class", () => {
 
     tychoStation.addShip(rocinante);
     expect(tychoStation.ships).toHaveLength(1);
-    expect(tychoStation.ships).toEqual([rocinante.name]);
+    expect(tychoStation.ships).toEqual([rocinante]);
   });
 
   it("can remove ships", () => {
@@ -43,16 +47,16 @@ describe("port class", () => {
 
     tychoStation.addShip(rocinante);
     expect(tychoStation.ships).toHaveLength(1);
-    expect(tychoStation.ships).toEqual([rocinante.name]);
+    expect(tychoStation.ships).toEqual([rocinante]);
 
     tychoStation.removeShip(rocinante);
     expect(tychoStation.ships).toEqual([]);
 
     tychoStation.addShip(rocinante);
     tychoStation.addShip(scopuli);
-    expect(tychoStation.ships).toEqual([rocinante.name, scopuli.name]);
+    expect(tychoStation.ships).toEqual([rocinante, scopuli]);
 
     tychoStation.removeShip(rocinante);
-    expect(tychoStation.ships).toEqual([scopuli.name]);
+    expect(tychoStation.ships).toEqual([scopuli]);
   });
 });

@@ -12,7 +12,7 @@ describe("ship class", () => {
     ceresStation = new Port("Ceres Station");
     medinaStation = new Port("Medina Station");
     itinerary = new Itinerary([ceresStation, medinaStation]);
-    ship = new Ship(itinerary, "Rocinante");
+    ship = new Ship(itinerary);
   });
   it("can be instatiated", () => {
     expect(ship.itinerary.ports).toBeInstanceOf(Array);
@@ -22,11 +22,7 @@ describe("ship class", () => {
   });
 
   it("gets added to port on instatiation", () => {
-    expect(ship.currentPort.ships).toContain(ship.name);
-  });
-
-  it("has a name", () => {
-    expect(ship.name).toBe("Rocinante");
+    expect(ship.currentPort.ships).toContain(ship);
   });
 
   it("has a starting port", () => {
@@ -38,7 +34,7 @@ describe("ship class", () => {
 
     ship.sail();
     expect(ship.previousPort).toEqual(ceresStation);
-    expect(ship.previousPort.ships).not.toContain(ship.name);
+    expect(ship.previousPort.ships).not.toContain(ship);
   });
 
   it("can dock at a different port", () => {
@@ -46,7 +42,7 @@ describe("ship class", () => {
     ship.sail();
     ship.dock();
     expect(ship.currentPort).toBe(medinaStation);
-    expect(ship.currentPort.ships).toContain(ship.name);
+    expect(ship.currentPort.ships).toContain(ship);
   });
 
   it("it can't sail past the last port in itinerary", () => {

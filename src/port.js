@@ -4,10 +4,10 @@ class Port {
     this.ships = [];
   }
   addShip(ship) {
-    this.ships.push(ship.name);
+    this.ships.push(ship);
   }
   removeShip(ship) {
-    this.ships = this.ships.filter((el) => el !== ship.name);
+    this.ships = this.ships.filter((el) => el !== ship);
   }
 }
 module.exports = Port;
