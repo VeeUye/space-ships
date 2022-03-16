@@ -25,8 +25,8 @@ describe("port class", () => {
   it("it has ships", () => {
     expect(tychoStation.ships).toBeInstanceOf(Array);
     expect(tychoStation.ships).toEqual([]);
-    expect(addShip).toBeInstanceOf(Function);
-    addShip(ship);
+    expect(tychoStation.addShip).toBeInstanceOf(Function);
+    tychoStation.addShip(ship);
     expect(tychoStation.ships).toHaveLength(1);
     expect(tychoStation.ships).toEqual([ship]);
   });
