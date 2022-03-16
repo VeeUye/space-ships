@@ -9,8 +9,6 @@ let ship;
 
 describe("ship class", () => {
   beforeEach(() => {
-    // ceresStation = new Port("Ceres Station");
-    // medinaStation = new Port("Medina Station");
     ceresStation = {
       addShip: jest.fn(),
       removeShip: jest.fn(),
@@ -25,7 +23,9 @@ describe("ship class", () => {
       ships: []
     };
 
-    itinerary = new Itinerary([ceresStation, medinaStation]);
+    itinerary = {
+      ports: [ceresStation, medinaStation]
+    };
     ship = new Ship(itinerary);
   });
   it("can be instatiated", () => {

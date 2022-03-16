@@ -6,7 +6,6 @@ const Itinerary = require("../src/itinerary");
 
 let tychoStation;
 let gannymede;
-let itinerary;
 let rocinante;
 let scopuli;
 
@@ -14,11 +13,8 @@ describe("port class", () => {
   beforeEach(() => {
     tychoStation = new Port("Tycho Station");
     gannymede = new Port("Gannymede");
-    // itinerary = new Itinerary([tychoStation, gannymede]);
     rocinante = jest.fn();
     scopuli = jest.fn();
-    // rocinante = new Ship(itinerary, "Rocinante");
-    // scopuli = new Ship(itinerary, "Scopuli");
   });
 
   it("instantiates a port", () => {

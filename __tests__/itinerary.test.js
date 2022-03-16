@@ -9,8 +9,6 @@ let itinerary;
 
 describe("Itinerary", () => {
   beforeEach(() => {
-    // newTerra = new Port("New Terra");
-    // ilus = new Port("Ilus");
     newTerra = jest.fn();
     ilus = jest.fn();
     itinerary = new Itinerary([newTerra, ilus]);
