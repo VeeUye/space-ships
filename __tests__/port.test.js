@@ -6,7 +6,6 @@ const Itinerary = require("../src/itinerary");
 
 let tychoStation;
 let gannymede;
-let ship;
 let itinerary;
 let rocinante;
 let scopuli;
@@ -55,6 +54,7 @@ describe("port class", () => {
     tychoStation.addShip(rocinante);
     tychoStation.addShip(scopuli);
     expect(tychoStation.ships).toEqual([rocinante, scopuli]);
+    console.log(tychoStation.ships);
 
     tychoStation.removeShip(rocinante);
     expect(tychoStation.ships).toEqual([scopuli]);
