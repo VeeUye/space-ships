@@ -19,15 +19,23 @@ describe("port class", () => {
   });
   it("instantiates a port", () => {
     expect(new Port(tychoStation)).toBeInstanceOf(Object);
+    console.log(tychoStation.ships);
   });
   it("port has a name", () => {
     expect(tychoStation.portName).toBe("Tycho Station");
   });
-  it("it has ships", () => {
+  it("it can add ships", () => {
+    tychoStation.ships = [];
     expect(tychoStation.ships).toBeInstanceOf(Array);
     expect(tychoStation.ships).toEqual([]);
     expect(tychoStation.addShip).toBeInstanceOf(Function);
     expect(tychoStation.removeShip).toBeInstanceOf(Function);
+    tychoStation.addShip(rocinante);
+    expect(tychoStation.ships).toHaveLength(1);
+    expect(tychoStation.ships).toEqual([rocinante.name]);
+  });
+  it("can remove ships", () => {
+    tychoStation.ships = [];
     tychoStation.addShip(rocinante);
     expect(tychoStation.ships).toHaveLength(1);
     expect(tychoStation.ships).toEqual([rocinante.name]);

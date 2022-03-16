@@ -21,6 +21,10 @@ describe("ship class", () => {
     expect(ship.previousPort).toBeNull();
   });
 
+  it("gets added to port on instatiation", () => {
+    expect(ship.currentPort.ships).toContain(ship.name);
+  });
+
   it("has a name", () => {
     expect(ship.name).toBe("Rocinante");
   });
