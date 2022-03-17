@@ -2,5 +2,7 @@ class Controller {
   constructor() {
     this.initialiseSea();
   }
-  initialiseSea() {}
+  initialiseSea() {
+    window.setInterval(() => {}, 1000);
+  }
 }
