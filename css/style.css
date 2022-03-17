@@ -9,3 +9,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#viewport {
+  width: 640px;
+  height: 256px;
+  position: relative;
+  overflow-x: auto;
+  background-image: url(../images/water0.png);
+}
