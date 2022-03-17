@@ -1,5 +1,6 @@
-function Controller() {
-  this.initialiseSea();
+class Controller {
+  constructor() {
+    this.initialiseSea();
+  }
+  initialiseSea() {}
 }
-
-Controller.prototype.initialiseSea = function initialiseSea() {};
