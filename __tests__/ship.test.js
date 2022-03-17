@@ -50,7 +50,9 @@ describe("ship class", () => {
     expect(ship.previousPort).toEqual(ceresStation);
     expect(ceresStation.removeShip).toHaveBeenCalledWith(ship);
   });
+  //dock differs from final walkthrough. Specifically, an itinerary instance is missing. However, not sure why I would need one here?
 
+  // Task states: Now ride solo and tackle can dock at a different port, stubbing out Itinerary.
   it("can dock at a different port", () => {
     expect(ship.dock).toBeInstanceOf(Function);
     ship.sail();
