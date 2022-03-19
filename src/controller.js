@@ -1,8 +1,11 @@
 (function exportController() {
   class Controller {
     constructor(ship) {
-      this.initialiseSea();
       this.ship = ship;
+      this.initialiseSea();
+      document.querySelector("#sailbutton").addEventListener("click", () => {
+        this.sail();
+      });
     }
     initialiseSea() {
       const backgrounds = ["./images/water0.png", "./images/water1.png"];
