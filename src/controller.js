@@ -27,6 +27,8 @@
         portsElement.style.width = `${portsElementWidth + 256}px`;
       });
     }
+
+    renderShip(ship) {}
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Controller;
