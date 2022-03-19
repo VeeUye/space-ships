@@ -12,6 +12,7 @@
     <div id="viewport">
       <div id="ports"></div>
       <div id="ship"></div>
+      <button id="sailbutton">Set Sail!</button>
     </div>
     <script src="src/controller.js"></script>
     <script src="src/port.js"></script>
@@ -27,9 +28,8 @@
         new Port("Ilus")
       ]);
       const ship = new Ship(itinerary);
-    </script>
-    <script>
       controller.renderPorts(itinerary.ports);
+      controller.renderShip(ship);
     </script>
   </body>
 </html>
