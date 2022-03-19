@@ -13,6 +13,11 @@
         backgroundIndex += 1;
       }, 1000);
     }
+
+    renderPorts(ports) {
+      const portsElement = document.querySelector("#ports");
+      portsElement.style.width = "0px";
+    }
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Controller;
