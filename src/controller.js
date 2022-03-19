@@ -1,8 +1,9 @@
 (function exportController() {
   class Controller {
     constructor(ship) {
-      this.ship = ship;
       this.initialiseSea();
+      this.ship = ship;
+
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.sail();
       });
@@ -18,10 +19,22 @@
       }, 1000);
     }
 
-    renderPorts(ports) {
+    renderShip() {
+      const shipPortIndex = this.ship.itinerary.ports.indexOf(
+        this.ship.currentPort
+      );
+      const portElement = document.querySelector(
+        `[data-port-index='${shipPortIndex}']`
+      );
+      const shipElement = document.querySelector("#ship");
+      shipElement.style.top = `${portElement.offsetTop + 30}px`;
+      shipElement.style.left = `${portElement.offsetLeft - 43}px`;
+    }
+
+    renderPorts() {
       const portsElement = document.querySelector("#ports");
       portsElement.style.width = "0px";
-      ports.forEach((port, index) => {
+      this.ship.itinerary.ports.forEach((port, index) => {
         const newPortElement = document.createElement("div");
         newPortElement.className = "port";
         newPortElement.dataset.portName = port.name;
@@ -30,17 +43,6 @@
         const portsElementWidth = parseInt(portsElement.style.width, 10);
         portsElement.style.width = `${portsElementWidth + 256}px`;
       });
-    }
-
-    renderShip() {
-      const ship = this.ship;
-      const shipPortIndex = ship.itinerary.ports.indexOf(this.currentPort);
-      const portElement = document.querySelector(
-        `[data-port-index='${shipPortIndex}']`
-      );
-      const shipElement = document.querySelector("#ship");
-      shipElement.style.top = `${portElement.offsetTop + 100}px`;
-      shipElement.style.left = `${portElement.offsetLeft - 64}px`;
     }
 
     sail() {
