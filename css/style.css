@@ -24,3 +24,9 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+#ports > .port {
+  width: 64px;
+  height: 32px;
+  background-image: url("../images/port.png");
+}
