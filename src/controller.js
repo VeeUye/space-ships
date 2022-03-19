@@ -2,7 +2,7 @@
   class Controller {
     constructor(ship) {
       this.initialiseSea();
-      ship = ship;
+      this.ship = ship;
     }
     initialiseSea() {
       const backgrounds = ["./images/water0.png", "./images/water1.png"];
@@ -29,7 +29,8 @@
       });
     }
 
-    renderShip(ship) {
+    renderShip() {
+      const ship = this.ship;
       const shipPortIndex = ship.itinerary.ports.indexOf(this.currentPort);
       const portElement = document.querySelector(
         `[data-port-index='${shipPortIndex}']`

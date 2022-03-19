@@ -25,7 +25,6 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const controller = new Controller();
       const itinerary = new Itinerary([
         new Port("Earth"),
         new Port("Luna"),
@@ -34,8 +33,10 @@
         new Port("Ilus")
       ]);
       const ship = new Ship(itinerary);
+      const controller = new Controller(ship);
+
       controller.renderPorts(itinerary.ports);
-      controller.renderShip(ship);
+      controller.renderShip();
     </script>
   </body>
 </html>
