@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="viewport"></div>
+    <div id="viewport">
+      <div id="ports"></div>
+    </div>
     <script src="src/controller.js"></script>
+    <script src="src/port.js"></script>
+    <script src="src/itinerary.js"></script>
     <script>
       const controller = new Controller();
+      const itinerary = new Itinerary([
+        new Port("Earth"),
+        new Port("Luna"),
+        new Port("Ceres Station"),
+        new Port("Medina Station"),
+        new Port("Ilus")
+      ]);
     </script>
-    <script src="src/port.js"></script>
   </body>
 </html>
