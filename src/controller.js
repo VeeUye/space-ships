@@ -48,10 +48,14 @@
     sail() {
       const ship = this.ship;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      console.log(ship.itinerary.ports);
       const nextPortIndex = currentPortIndex + 1;
       const nextPortElement = document.querySelector(
-        `[data-port-index='${nextPortIndex}]`
+        `[data-port-index='${nextPortIndex}']`
       );
+      if (!nextPortElement) {
+        return alert("End of the line!");
+      }
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
