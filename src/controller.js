@@ -69,7 +69,7 @@
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
-      console.log(ship.itinerary.ports[currentPortIndex + 1].portName);
+      // console.log(ship.itinerary.ports[currentPortIndex + 1].portName);
 
       if (!nextPortElement) {
         return this.renderMessage(
@@ -80,15 +80,14 @@
       this.renderMessage(
         `Buckle up, Bunnies! We're now departing ${ship.currentPort.portName}`
       );
+
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
         if (shipLeft === nextPortElement.offsetLeft - 32) {
           ship.sail();
-
           ship.dock();
-          this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
-      Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
+
           this.renderMessage(
             `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
           );
@@ -96,6 +95,13 @@
         }
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
+
+      if (currentPortIndex === ship.itinerary.ports.length - 2) {
+        this.renderPortStatus(`End of the line`);
+      } else {
+        this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
+      Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
+      }
     }
   }
   if (typeof module !== "undefined" && module.exports) {
