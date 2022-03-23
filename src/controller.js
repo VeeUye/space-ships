@@ -64,9 +64,10 @@
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
+
       if (!nextPortElement) {
-        return alert(
-          "You've sailed off the edge of the world and it's turtles all the way down"
+        return this.renderMessage(
+          `You've sailed off the edge of the world and it's turtles all the way down`
         );
       }
 
