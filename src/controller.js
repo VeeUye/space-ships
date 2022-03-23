@@ -45,34 +45,6 @@
       });
     }
 
-    sail() {
-      const ship = this.ship;
-      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
-      console.log(ship.itinerary.ports);
-      const nextPortIndex = currentPortIndex + 1;
-      const nextPortElement = document.querySelector(
-        `[data-port-index='${nextPortIndex}']`
-      );
-      if (!nextPortElement) {
-        return alert("End of the line!");
-      }
-      this.renderMessage(
-        `Buckle up, Bunnies! Now departing ${ship.currentPort.portName}`
-      );
-      console.log(ship.currentPort.portName);
-      const shipElement = document.querySelector("#ship");
-      const sailInterval = setInterval(() => {
-        const shipLeft = parseInt(shipElement.style.left, 10);
-        if (shipLeft === nextPortElement.offsetLeft - 32) {
-          ship.sail();
-          ship.dock();
-          clearInterval(sailInterval);
-        }
-
-        shipElement.style.left = `${shipLeft + 1}px`;
-      }, 20);
-    }
-
     renderMessage(message) {
       const messageBox = document.createElement("div");
       messageBox.id = "message";
@@ -83,6 +55,39 @@
       setTimeout(() => {
         viewport.removeChild(messageBox);
       }, 2000);
+    }
+
+    sail() {
+      const ship = this.ship;
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const nextPortIndex = currentPortIndex + 1;
+      const nextPortElement = document.querySelector(
+        `[data-port-index='${nextPortIndex}']`
+      );
+      if (!nextPortElement) {
+        return alert(
+          "You've sailed off the edge of the world and it's turtles all the way down"
+        );
+      }
+
+      this.renderMessage(
+        `Buckle up, Bunnies! We're now departing ${ship.currentPort.portName}`
+      );
+
+      const shipElement = document.querySelector("#ship");
+      const sailInterval = setInterval(() => {
+        const shipLeft = parseInt(shipElement.style.left, 10);
+        if (shipLeft === nextPortElement.offsetLeft - 32) {
+          ship.sail();
+
+          ship.dock();
+          this.renderMessage(
+            `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
+          );
+          clearInterval(sailInterval);
+        }
+        shipElement.style.left = `${shipLeft + 1}px`;
+      }, 20);
     }
   }
   if (typeof module !== "undefined" && module.exports) {
