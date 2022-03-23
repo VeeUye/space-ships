@@ -88,6 +88,13 @@
           ship.sail();
           ship.dock();
 
+          if (currentPortIndex === ship.itinerary.ports.length - 2) {
+            this.renderPortStatus(`End of the line`);
+          } else {
+            this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
+            Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
+          }
+
           this.renderMessage(
             `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
           );
@@ -95,13 +102,6 @@
         }
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
-
-      if (currentPortIndex === ship.itinerary.ports.length - 2) {
-        this.renderPortStatus(`End of the line`);
-      } else {
-        this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
-      Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
-      }
     }
   }
   if (typeof module !== "undefined" && module.exports) {
