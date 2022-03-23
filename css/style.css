@@ -11,8 +11,8 @@ body {
 }
 
 #viewport {
-  width: 100%;
-  height: 256px;
+  width: 80%;
+  height: 250px;
   position: absolute;
   overflow-x: auto;
   background-image: url(../images/water0.png);
@@ -46,9 +46,9 @@ body {
   font-family: inherit;
   padding: 5px 5px;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  bottom: 20%;
+  left: 45%;
+  width: 10%;
   font-family: "VT323", monospace;
 }
 
@@ -71,9 +71,11 @@ body {
 
 #hud {
   background-color: black;
-  display: flex;
+  position: absolute;
+  align-self: flex-start;
   justify-content: flex-end;
-  padding: 20px;
+  padding-top: 20%;
+  width: 80%;
 }
 
 #port-status {
