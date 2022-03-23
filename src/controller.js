@@ -45,6 +45,11 @@
       });
     }
 
+    renderPortStatus(journeyUpdate) {
+      const portStatus = document.querySelector("#port-status");
+      portStatus.innerHTML = journeyUpdate;
+    }
+
     renderMessage(message) {
       const messageBox = document.createElement("div");
       messageBox.id = "message";
@@ -64,6 +69,7 @@
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
+      console.log(ship.itinerary.ports[currentPortIndex + 1].portName);
 
       if (!nextPortElement) {
         return this.renderMessage(
@@ -74,7 +80,6 @@
       this.renderMessage(
         `Buckle up, Bunnies! We're now departing ${ship.currentPort.portName}`
       );
-
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
@@ -82,6 +87,8 @@
           ship.sail();
 
           ship.dock();
+          this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
+      Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
           this.renderMessage(
             `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
           );
