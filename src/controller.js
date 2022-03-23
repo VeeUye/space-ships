@@ -56,6 +56,10 @@
       if (!nextPortElement) {
         return alert("End of the line!");
       }
+      this.renderMessage(
+        `Buckle up, Bunnies! Now departing ${ship.currentPort.portName}`
+      );
+      console.log(ship.currentPort.portName);
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
