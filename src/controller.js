@@ -22,8 +22,9 @@
     initialiseHUD() {
       const initialHUD = document.getElementById("port-status");
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
-      const initialPortStatus = `Current Port: ${ship.currentPort.portName}
-            Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`;
+      const initialPortStatus = `Current Port: ${
+        ship.currentPort.portName
+      }\n\Next Port: ${ship.itinerary.ports[currentPortIndex + 1].portName}`;
       initialHUD.innerHTML = initialPortStatus;
     }
 
@@ -72,7 +73,6 @@
 
     sail() {
       const ship = this.ship;
-      // const currentPortIndex = this.currentPortIndex;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
       const nextPortElement = document.querySelector(
@@ -100,8 +100,11 @@
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
             this.renderPortStatus(`End of the line`);
           } else {
-            this.renderPortStatus(`Current Port: ${ship.currentPort.portName}
-            Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`);
+            this.renderPortStatus(
+              `Current Port: ${ship.currentPort.portName}\n\Next Port: ${
+                ship.itinerary.ports[currentPortIndex + 2].portName
+              }`
+            );
           }
 
           this.renderMessage(

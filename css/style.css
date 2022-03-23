@@ -82,4 +82,5 @@ body {
   background-color: black;
   font-family: "VT323";
   color: white;
+  white-space: pre;
 }
