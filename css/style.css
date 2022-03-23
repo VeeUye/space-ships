@@ -56,7 +56,6 @@ body {
   color: red;
   background-color: white;
   border-bottom-width: 0;
-  /* padding-bottom: 10px; */
   border-bottom: 4px solid #d8040f;
 }
 
@@ -68,4 +67,17 @@ body {
   bottom: 0;
   border-top: 3px solid black;
   background-color: white;
+}
+
+#hud {
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+#port-status {
+  background-color: black;
+  font-family: "VT323";
+  color: white;
 }
