@@ -68,6 +68,18 @@
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
     }
+
+    renderMessage(message) {
+      const messageBox = document.createElement("div");
+      messageBox.id = "message";
+      messageBox.innerHTML += message;
+      const viewport = document.querySelector("#viewport");
+      viewport.appendChild(messageBox);
+
+      setTimeout(() => {
+        viewport.removeChild(messageBox);
+      }, 2000);
+    }
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Controller;
