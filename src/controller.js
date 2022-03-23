@@ -1,7 +1,7 @@
 (function exportController() {
   class Controller {
     constructor(ship) {
-      this.initialiseSea();
+      // this.initialiseSea();
       this.ship = ship;
 
       document.querySelector("#sailbutton").addEventListener("click", () => {
@@ -17,6 +17,14 @@
         }")`;
         backgroundIndex += 1;
       }, 1000);
+    }
+
+    initialiseHUD() {
+      const initialHUD = document.getElementById("port-status");
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const initialPortStatus = `Current Port: ${ship.currentPort.portName}
+            Next Port: ${ship.itinerary.ports[currentPortIndex + 2].portName}`;
+      initialHUD.innerHTML = initialPortStatus;
     }
 
     renderShip() {
@@ -64,12 +72,12 @@
 
     sail() {
       const ship = this.ship;
+      // const currentPortIndex = this.currentPortIndex;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
-      // console.log(ship.itinerary.ports[currentPortIndex + 1].portName);
 
       if (!nextPortElement) {
         return this.renderMessage(
@@ -88,6 +96,7 @@
           ship.sail();
           ship.dock();
 
+          // refactor below as ternary?
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
             this.renderPortStatus(`End of the line`);
           } else {
