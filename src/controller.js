@@ -1,7 +1,7 @@
 (function exportController() {
   class Controller {
     constructor(ship) {
-      // this.initialiseSea();
+      this.initialiseSea();
       this.ship = ship;
 
       document.querySelector("#sailbutton").addEventListener("click", () => {
@@ -9,7 +9,10 @@
       });
     }
     initialiseSea() {
-      const backgrounds = ["./images/water0.png", "./images/water1.png"];
+      const backgrounds = [
+        "./images/space-background01.png",
+        "./images/space-background02.png"
+      ];
       let backgroundIndex = 0;
       window.setInterval(() => {
         document.querySelector("#viewport").style.backgroundImage = `url("${

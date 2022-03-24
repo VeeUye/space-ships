@@ -15,7 +15,7 @@ body {
   height: 250px;
   position: absolute;
   overflow-x: auto;
-  background-image: url(../images/water0.png);
+  background-image: url(../images/space-background01.png);
 }
 
 #ports {
@@ -34,7 +34,7 @@ body {
 #ship {
   width: 128px;
   height: 64px;
-  background-image: url("../images/ship.png");
+  background-image: url("../images/rocket-ship.png");
   position: absolute;
 }
 
