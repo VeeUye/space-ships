@@ -26,9 +26,9 @@ body {
 }
 
 #ports > .port {
-  width: 64px;
-  height: 32px;
-  background-image: url("../images/port.png");
+  width: 100px;
+  height: 64px;
+  background-image: url("../images/planet.png");
 }
 
 #ship {

@@ -39,8 +39,8 @@
         `[data-port-index='${shipPortIndex}']`
       );
       const shipElement = document.querySelector("#ship");
-      shipElement.style.top = `${portElement.offsetTop + 40}px`;
-      shipElement.style.left = `${portElement.offsetLeft - 30}px`;
+      shipElement.style.top = `${portElement.offsetTop + 60}px`;
+      shipElement.style.left = `${portElement.offsetLeft - 15}px`;
     }
 
     renderPorts() {
@@ -95,7 +95,7 @@
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
-        if (shipLeft === nextPortElement.offsetLeft - 32) {
+        if (shipLeft === nextPortElement.offsetLeft - 15) {
           ship.sail();
           ship.dock();
 
