@@ -10,8 +10,8 @@
     }
     initialiseSea() {
       const backgrounds = [
-        "./images/space-background01.png",
-        "./images/space-background02.png"
+        "./images/space-background-big01.png",
+        "./images/space-background-big02.png"
       ];
       let backgroundIndex = 0;
       window.setInterval(() => {
@@ -39,8 +39,8 @@
         `[data-port-index='${shipPortIndex}']`
       );
       const shipElement = document.querySelector("#ship");
-      shipElement.style.top = `${portElement.offsetTop + 30}px`;
-      shipElement.style.left = `${portElement.offsetLeft - 43}px`;
+      shipElement.style.top = `${portElement.offsetTop + 40}px`;
+      shipElement.style.left = `${portElement.offsetLeft - 30}px`;
     }
 
     renderPorts() {

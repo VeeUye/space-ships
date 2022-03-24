@@ -15,7 +15,7 @@ body {
   height: 250px;
   position: absolute;
   overflow-x: auto;
-  background-image: url(../images/space-background01.png);
+  background-image: url(../images/space-background-big01.png);
 }
 
 #ports {
