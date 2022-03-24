@@ -4,6 +4,14 @@
       this.initialiseSea();
       this.ship = ship;
 
+      const sailButton = document.querySelector("#sailbutton");
+      sailButton.onclick = function () {
+        sailButton.disabled = true;
+        setTimeout(function () {
+          sailButton.disabled = false;
+        }, 6000);
+      };
+
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.sail();
       });
@@ -95,8 +103,12 @@
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
+        // const buttonTimer = setTimeout(document.getElementById("sailbutton").disabled = true)
+
         if (shipLeft === nextPortElement.offsetLeft - 15) {
           ship.sail();
+
+          // document.getElementById("sailbutton").disabled = true;
           ship.dock();
 
           // refactor below as ternary?
@@ -115,6 +127,7 @@
           );
           clearInterval(sailInterval);
         }
+
         shipElement.style.left = `${shipLeft + 1}px`;
       }, 20);
     }
