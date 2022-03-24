@@ -12,7 +12,7 @@ body {
 
 #viewport {
   width: 80%;
-  height: 250px;
+  height: 300px;
   position: absolute;
   overflow-x: auto;
   background-image: url(../images/space-background-big01.png);
@@ -74,7 +74,7 @@ body {
   position: absolute;
   align-self: flex-start;
   justify-content: flex-end;
-  padding-top: 20%;
+  padding-top: 10%;
   width: 80%;
 }
 
