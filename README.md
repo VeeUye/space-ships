@@ -17,15 +17,11 @@ To run Space Ships in your local environment:
 - CSS
 - HTML
 
-## Visuals
-
-![Screenshot of Space Ships](https://github.com/VeeUye/space-ships/blob/main/space-ships-screenshot.png?raw=true)
-
 ## Roadmap
 
-- [] Add ability to input own itinerary of stations
-- [] Generate distinct planet image for each new station
-- [] Add sound effects to events
+- [ ] Add ability to input own itinerary of stations
+- [ ] Generate distinct planet image for each new station
+- [ ] Add sound effects to events
 
 ## Contributions
 
