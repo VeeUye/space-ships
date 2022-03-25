@@ -21,6 +21,7 @@ To run Space Ships in your local environment:
 
 - [ ] Add ability to input own itinerary of stations
 - [ ] Generate distinct planet image for each new station
+- [ ] Scroll background with ship position
 - [ ] Add sound effects to events
 
 ## Contributions
