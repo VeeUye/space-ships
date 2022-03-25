@@ -27,13 +27,7 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const itinerary = new Itinerary([
-        new Port("Earth"),
-        new Port("Luna"),
-        new Port("Ceres Station"),
-        new Port("Medina Station"),
-        new Port("Ilus")
-      ]);
+      const itinerary = new Itinerary([]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
