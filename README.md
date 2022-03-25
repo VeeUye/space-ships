@@ -10,3 +10,29 @@ To run Space Ships in your local environment:
 
 1. [Clone this repo](https://github.com/VeeUye/space-ships) (instructions on cloning repos [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
 2. Open the index.html file in the cloned repo in your preferred browser.
+
+## Framework
+
+- JavaScript
+- CSS
+- HTML
+
+## Visuals
+
+![Screenshot of Space Ships](https://github.com/VeeUye/space-ships/blob/main/space-ships-screenshot.png?raw=true)
+
+## Roadmap
+
+- [] Add ability to input own itinerary of stations
+- [] Generate distinct planet image for each new station
+- [] Add sound effects to events
+
+## Contributions
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Project Status
+
+Active!
