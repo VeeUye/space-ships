@@ -15,7 +15,21 @@
     />
   </head>
   <body>
-    <div id="hud"><div id="port-status">HUD placeholder</div></div>
+    <div id="hud">
+      <div id="port-status">HUD placeholder</div>
+      <form id="form">
+        <label for="portname">Add Planet</label>
+        <br />
+        <input
+          type="text"
+          id="portname"
+          name="portname"
+          placeholder="Planet Name"
+        />
+        <br />
+        <input type="button" value="Submit" />
+      </form>
+    </div>
     <div id="viewport">
       <div id="ports"></div>
       <div id="ship"></div>
@@ -27,7 +41,7 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const itinerary = new Itinerary([]);
+      const itinerary = new Itinerary(planets);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
