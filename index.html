@@ -49,16 +49,19 @@
       // controller.renderShip();
       controller.initialiseHUD();
 
-      // const form = document.querySelector("#form"); 
+      const form = document.querySelector("#form"); 
       // const port = new Port(userAddedPort);
       function addNewPort() {
         event.preventDefault();
-        newPortItem = document.getElementById("portname").value;
+        const newPortItem = document.getElementById("portname").value;
         const port = new Port(newPortItem);
-        controller.ship.itinerary.ports.push(port);
+        itinerary.ports.push(port);
         controller.ship.dock();
-        controller.renderPorts(ship.itinerary.ports);
-        console.log(itinerary);
+        controller.renderPorts();
+        //  controller.renderShip();
+         document.getElementById("portname").value = "";
+         
+        console.log(itinerary.ports);
       }
      
       if (form.addEventListener) {
