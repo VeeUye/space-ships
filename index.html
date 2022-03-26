@@ -41,7 +41,11 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const itinerary = new Itinerary(["Ceres Station", "mount doom"]);
+      const itinerary = new Itinerary([ new Port("Earth"),
+        new Port("Luna"),
+        new Port("Ceres Station"),
+        new Port("Medina Station"),
+        new Port("Ilus")]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
@@ -49,11 +53,22 @@
       controller.renderShip();
       controller.initialiseHUD();
 
-      const form = document.querySelector("#form");
+      const form = document.querySelector("#form"); 
+      // const port = new Port(userAddedPort);
+      function addNewPort() {
+        event.preventDefault();
+        newPortItem = document.getElementById("portname").value;
+        const port = new Port(newPortItem);
+        controller.ship.itinerary.ports.push(port);
+        controller.ship.dock();
+        controller.renderPorts();
+        console.log(itinerary);
+      }
+     
       if (form.addEventListener) {
-        form.addEventListener("submit", console.log("test"), false);
+        form.addEventListener("submit", addNewPort, false);
       } else if (form.attachEvent) {
-        form.attachEvent("onsubmit", console.log("test2"));
+        form.attachEvent("onsubmit", addNewPort);
       }
     </script>
   </body>
