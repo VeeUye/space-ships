@@ -93,7 +93,7 @@ body {
   margin-top: 10px;
 }
 
-input[type="button"] {
+button[type="submit"] {
   background-color: #fb3640;
   border: 0;
   border-bottom: 4px solid #d8040f;
