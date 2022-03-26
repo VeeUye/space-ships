@@ -35,14 +35,6 @@ describe("ship class", () => {
     expect(ship.previousPort).toBeNull();
   });
 
-  // it("gets added to port on instatiation", () => {
-  //   expect(ceresStation.addShip).toHaveBeenCalledWith(ship);
-  // });
-
-  // it("has a starting port", () => {
-  //   expect(ship.currentPort).toBe(ceresStation);
-  // });
-
   it("sets ship sailing", () => {
     expect(ship.sail).toBeInstanceOf(Function);
 

@@ -48,6 +48,7 @@
       // controller.renderPorts(itinerary.ports);
       // controller.renderShip();
       controller.initialiseHUD();
+     
 
       const form = document.querySelector("#form"); 
       // const port = new Port(userAddedPort);
@@ -56,13 +57,16 @@
         const newPortItem = document.getElementById("portname").value;
         const port = new Port(newPortItem);
         itinerary.ports.push(port);
+        console.log(port.ships)
         controller.ship.dock();
         controller.renderPorts();
-        //  controller.renderShip();
+        
+         controller.renderShip();
          document.getElementById("portname").value = "";
          
         console.log(itinerary.ports);
       }
+      
      
       if (form.addEventListener) {
         form.addEventListener("submit", addNewPort, false);

@@ -15,18 +15,6 @@
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.sail();
       });
-      // intercept form submission
-
-      // function changeButton() {
-      //   // const form = document.querySelector("#form");
-      //   // // form.style.backgroundColor = blue;
-      //   console.log("test");
-      // }
-
-      // const el = document.getElementById("form");
-      // el.addEventListener("submit", () => {
-      //   changeButton;
-      // });
     }
     initialiseSea() {
       const backgrounds = [
@@ -70,6 +58,13 @@
     renderPorts() {
       const portsElement = document.querySelector("#ports");
       portsElement.style.width = "0px";
+
+      if (portsElement.hasChildNodes()) {
+        while (portsElement.firstChild) {
+          portsElement.removeChild(portsElement.lastChild);
+        }
+      }
+
       this.ship.itinerary.ports.forEach((port, index) => {
         const newPortElement = document.createElement("div");
         newPortElement.className = "port";
@@ -80,6 +75,10 @@
         portsElement.style.width = `${portsElementWidth + 256}px`;
       });
     }
+
+    //
+    // }
+    // if (this.ship.itinerary.ports.length > 0) {
 
     renderPortStatus(journeyUpdate) {
       const portStatus = document.querySelector("#port-status");
