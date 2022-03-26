@@ -44,9 +44,9 @@
 
     initialiseHUD() {
       if (this.ship.itinerary.ports.length === 0) {
+        const initialHUD = document.getElementById("port-status");
         initialHUD.innerHTML = "Waiting for flight plan...";
       } else {
-        const initialHUD = document.getElementById("port-status");
         const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
         const initialPortStatus = `Current Port: ${
           ship.currentPort.portName
