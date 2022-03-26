@@ -41,13 +41,20 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const itinerary = new Itinerary(planets);
+      const itinerary = new Itinerary(["Ceres Station", "mount doom"]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
       controller.renderPorts(itinerary.ports);
       controller.renderShip();
       controller.initialiseHUD();
+
+      const form = document.querySelector("#form");
+      if (form.addEventListener) {
+        form.addEventListener("submit", console.log("test"), false);
+      } else if (form.attachEvent) {
+        form.attachEvent("onsubmit", console.log("test2"));
+      }
     </script>
   </body>
 </html>

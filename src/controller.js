@@ -15,6 +15,25 @@
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.sail();
       });
+      // intercept form submission
+
+      const form = document.querySelector("#form");
+      if (form.addEventListener) {
+        form.addEventListener("submit", console.log("test"), false);
+      } else if (form.attachEvent) {
+        form.attachEvent("onsubmit", console.log("test2"));
+      }
+
+      // function changeButton() {
+      //   // const form = document.querySelector("#form");
+      //   // // form.style.backgroundColor = blue;
+      //   console.log("test");
+      // }
+
+      // const el = document.getElementById("form");
+      // el.addEventListener("submit", () => {
+      //   changeButton;
+      // });
     }
     initialiseSea() {
       const backgrounds = [
