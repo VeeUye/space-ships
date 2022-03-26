@@ -43,12 +43,16 @@
     }
 
     initialiseHUD() {
-      const initialHUD = document.getElementById("port-status");
-      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
-      const initialPortStatus = `Current Port: ${
-        ship.currentPort.portName
-      }\n\Next Port: ${ship.itinerary.ports[currentPortIndex + 1].portName}`;
-      initialHUD.innerHTML = initialPortStatus;
+      if (this.ship.itinerary.ports.length === 0) {
+        initialHUD.innerHTML = "Waiting for flight plan...";
+      } else {
+        const initialHUD = document.getElementById("port-status");
+        const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+        const initialPortStatus = `Current Port: ${
+          ship.currentPort.portName
+        }\n\ Next Port: ${ship.itinerary.ports[currentPortIndex + 1].portName}`;
+        initialHUD.innerHTML = initialPortStatus;
+      }
     }
 
     renderShip() {

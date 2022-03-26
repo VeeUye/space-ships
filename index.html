@@ -41,19 +41,15 @@
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
     <script>
-      const itinerary = new Itinerary([ new Port("Earth"),
-        new Port("Luna"),
-        new Port("Ceres Station"),
-        new Port("Medina Station"),
-        new Port("Ilus")]);
+      const itinerary = new Itinerary([]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
-      controller.renderPorts(itinerary.ports);
-      controller.renderShip();
+      // controller.renderPorts(itinerary.ports);
+      // controller.renderShip();
       controller.initialiseHUD();
 
-      const form = document.querySelector("#form"); 
+      // const form = document.querySelector("#form"); 
       // const port = new Port(userAddedPort);
       function addNewPort() {
         event.preventDefault();
@@ -61,7 +57,7 @@
         const port = new Port(newPortItem);
         controller.ship.itinerary.ports.push(port);
         controller.ship.dock();
-        controller.renderPorts();
+        controller.renderPorts(ship.itinerary.ports);
         console.log(itinerary);
       }
      
@@ -73,3 +69,9 @@
     </script>
   </body>
 </html>
+
+<!-- [ new Port("Earth"),
+        new Port("Luna"),
+        new Port("Ceres Station"),
+        new Port("Medina Station"),
+        new Port("Ilus")] -->
