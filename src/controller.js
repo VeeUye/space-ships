@@ -31,18 +31,12 @@
     }
 
     initialiseHUD() {
-      if (this.ship.itinerary.ports.length === 0) {
+      if (ship.itinerary.ports.length === 0) {
         const initialHUD = document.getElementById("port-status");
         initialHUD.innerHTML = "Waiting for flight plan...";
-      } else {
-        const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
-        const initialPortStatus = `Current Port: ${
-          ship.currentPort.portName
-        }\n\ Next Port: ${ship.itinerary.ports[currentPortIndex + 1].portName}`;
-        initialHUD.innerHTML = initialPortStatus;
+        console.log(ship.itinerary.ports.length);
       }
     }
-
     renderShip() {
       const shipPortIndex = this.ship.itinerary.ports.indexOf(
         this.ship.currentPort
@@ -76,10 +70,6 @@
       });
     }
 
-    //
-    // }
-    // if (this.ship.itinerary.ports.length > 0) {
-
     renderPortStatus(journeyUpdate) {
       const portStatus = document.querySelector("#port-status");
       portStatus.innerHTML = journeyUpdate;
@@ -105,6 +95,9 @@
         `[data-port-index='${nextPortIndex}']`
       );
 
+      const initialHUD = document.getElementById("port-status");
+      initialHUD.innerHTML = "Approaching destination...";
+
       if (!nextPortElement) {
         return this.renderMessage(
           `You've sailed off the edge of the world and it's turtles all the way down`
@@ -118,17 +111,15 @@
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
-        // const buttonTimer = setTimeout(document.getElementById("sailbutton").disabled = true)
 
         if (shipLeft === nextPortElement.offsetLeft - 15) {
           ship.sail();
-
-          // document.getElementById("sailbutton").disabled = true;
           ship.dock();
 
-          // refactor below as ternary?
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
-            this.renderPortStatus(`End of the line`);
+            this.renderPortStatus(
+              `${ship.currentPort.portName}: end of the line`
+            );
           } else {
             this.renderPortStatus(
               `Current Port: ${ship.currentPort.portName}\n\Next Port: ${
@@ -140,6 +131,7 @@
           this.renderMessage(
             `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
           );
+
           clearInterval(sailInterval);
         }
 
