@@ -4,7 +4,6 @@
       this.itinerary = itinerary;
       this.currentPort = itinerary.ports[0];
       this.previousPort = null;
-      // this.currentPort.addShip(this);
     }
 
     sail() {
@@ -13,7 +12,7 @@
         this.itinerary.ports[this.itinerary.ports.length - 1]
       ) {
         throw new Error(
-          "You've sailed off the edge of the world and it's turtles all the way down"
+          "The universe is a big place, but this is as far as you can go."
         );
       }
       this.previousPort = this.currentPort;

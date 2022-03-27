@@ -55,7 +55,7 @@ describe("ship class", () => {
     ship.sail();
     ship.dock();
     expect(() => ship.sail()).toThrowError(
-      "You've sailed off the edge of the world and it's turtles all the way down"
+      "The universe is a big place, but this is as far as you can go."
     );
   });
 });

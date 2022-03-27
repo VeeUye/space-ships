@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <div id="hud">
+     <div id="hud">
       <div id="port-status">HUD placeholder</div>
       <form id="form">
         <label for="portname">Add Planet</label>
@@ -29,6 +29,7 @@
         <br />
         <button type="submit" />Add</button>
       </form>
+    </div>
     </div>
     <div id="viewport">
       <div id="ports"></div>
@@ -45,31 +46,23 @@
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
-     
-      
       const form = document.querySelector("#form"); 
-      
       function addNewPort() {
         event.preventDefault();
         const newPortItem = document.getElementById("portname").value;
         const port = new Port(newPortItem);
         itinerary.ports.push(port);
-      
         controller.ship.dock();
         controller.renderPorts();
         controller.renderShip();
-         
         document.getElementById("portname").value = "";
       }
-       
-     
+
       if (form.addEventListener) {
         form.addEventListener("submit", addNewPort, false);
       } else if (form.attachEvent) {
         form.attachEvent("onsubmit", addNewPort);
       }
-
-   
     </script>
   </body>
 </html>
