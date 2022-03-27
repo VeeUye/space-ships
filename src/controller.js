@@ -79,11 +79,11 @@
       const crewComms = document.createElement("div");
       crewComms.id = "message";
       crewComms.innerHTML += message;
-      const viewport = document.querySelector("#viewport");
-      viewport.appendChild(crewComms);
+      const crewCommsBox = document.querySelector("#crew-comms");
+      crewCommsBox.appendChild(crewComms);
 
       setTimeout(() => {
-        viewport.removeChild(crewComms);
+        crewCommsBox.removeChild(crewComms);
       }, 3000);
     }
 
@@ -115,12 +115,11 @@
         const shipLeft = parseInt(shipElement.style.left, 10);
 
         if (shipLeft === nextPortElement.offsetLeft - 15) {
-          const shipFocus = document.getElementById("ship");
-
+          // const shipFocus = document.getElementById("ship");
+          // // shipFocus.scrollIntoView({ behavior: "smooth" });
           ship.sail();
           document.getElementById("viewport").scrollLeft += 100;
           ship.dock();
-          // shipFocus.scrollIntoView({ behavior: "smooth" });
 
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
             this.updateHUD(`${ship.currentPort.portName}: end of the line`);

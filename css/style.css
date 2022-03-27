@@ -102,3 +102,9 @@ button[type="submit"] {
   color: white;
   margin-top: 5px;
 }
+
+#crew-comms {
+  position: absolute;
+  bottom: 70px;
+  width: 90%;
+}
