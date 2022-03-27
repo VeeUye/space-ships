@@ -45,9 +45,7 @@
 
     //render ship in relation to port/s
     renderShip() {
-      const shipPortIndex = this.ship.itinerary.ports.indexOf(
-        this.ship.currentPort
-      );
+      const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const portElement = document.querySelector(
         `[data-port-index='${shipPortIndex}']`
       );
@@ -67,14 +65,14 @@
         }
       }
       //renders the ports
-      this.ship.itinerary.ports.forEach((port, index) => {
+      ship.itinerary.ports.forEach((port, index) => {
         const newPortElement = document.createElement("div");
         newPortElement.className = "port";
         newPortElement.dataset.portName = port.name;
         newPortElement.dataset.portIndex = index;
         portsElement.appendChild(newPortElement);
         const portsElementWidth = parseInt(portsElement.style.width, 10);
-        portsElement.style.width = `${portsElementWidth + 256}px`;
+        portsElement.style.width = `${portsElementWidth + 25}%`;
       });
     }
 
