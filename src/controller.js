@@ -2,6 +2,7 @@
   class Controller {
     constructor(ship) {
       this.initialiseSea();
+      this.initialiseHUD();
       this.ship = ship;
 
       // sailbutton timeout
@@ -37,8 +38,8 @@
     //render initial HUD message
     initialiseHUD() {
       if (ship.itinerary.ports.length === 0) {
-        const initialHUD = document.getElementById("port-status");
-        initialHUD.innerHTML = "Waiting for flight plan...";
+        const hud = document.getElementById("port-status");
+        hud.innerHTML = "Waiting for flight plan...";
       }
     }
 
@@ -78,21 +79,21 @@
     }
 
     //function updates the port-status div on dock()
-    renderPortStatus(journeyUpdate) {
+    updateHUD(journeyUpdate) {
       const portStatus = document.querySelector("#port-status");
       portStatus.innerHTML = journeyUpdate;
     }
     //updates the message box
-    renderMessage(message) {
-      const messageBox = document.createElement("div");
-      messageBox.id = "message";
-      messageBox.innerHTML += message;
+    renderCrewComms(message) {
+      const crewComms = document.createElement("div");
+      crewComms.id = "message";
+      crewComms.innerHTML += message;
       const viewport = document.querySelector("#viewport");
-      viewport.appendChild(messageBox);
+      viewport.appendChild(crewComms);
 
       setTimeout(() => {
-        viewport.removeChild(messageBox);
-      }, 2000);
+        viewport.removeChild(crewComms);
+      }, 3000);
     }
 
     // function launches ship
@@ -103,20 +104,20 @@
       const nextPortElement = document.querySelector(
         `[data-port-index='${nextPortIndex}']`
       );
-
-      const initialHUD = document.getElementById("port-status");
-      initialHUD.innerHTML = "Approaching destination...";
-
+      //HUD status updates
+      const hud = document.getElementById("port-status");
+      hud.innerHTML = "Approaching destination...";
+      // Message displayed if end of line
       if (!nextPortElement) {
-        return this.renderMessage(
+        return this.renderCrewComms(
           `The universe is a big place, but this is as far as you can go.`
         );
       }
-
-      this.renderMessage(
+      // Message displayed if a next destination exists
+      this.renderCrewComms(
         `Buckle up, Bunnies! We're now departing ${ship.currentPort.portName}`
       );
-
+      // animates ship to port transition
       const shipElement = document.querySelector("#ship");
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
@@ -128,20 +129,18 @@
           //scroll ship into view
           const shipFocus = document.getElementById("ship");
           shipFocus.scrollIntoView();
-
+          //update HUD
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
-            this.renderPortStatus(
-              `${ship.currentPort.portName}: end of the line`
-            );
+            this.updateHUD(`${ship.currentPort.portName}: end of the line`);
           } else {
-            this.renderPortStatus(
+            this.updateHUD(
               `Current Port: ${ship.currentPort.portName}\n\Next Port: ${
                 ship.itinerary.ports[currentPortIndex + 2].portName
               }`
             );
           }
-
-          this.renderMessage(
+          // Update message box
+          this.renderCrewComms(
             `Gather your stuff. We've arrived at ${ship.currentPort.portName}`
           );
 
