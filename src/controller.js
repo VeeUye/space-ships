@@ -4,6 +4,7 @@
       this.initialiseSea();
       this.ship = ship;
 
+      // sailbutton timeout
       const sailButton = document.querySelector("#sailbutton");
       sailButton.onclick = function () {
         sailButton.disabled = true;
@@ -12,10 +13,12 @@
         }, 5000);
       };
 
+      //sailbutton eventlistener
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.sail();
       });
     }
+
     initialiseSea() {
       const backgrounds = [
         "./images/space-background-big01.png",
@@ -30,13 +33,15 @@
       }, 1000);
     }
 
+    //render initial HUD message
     initialiseHUD() {
       if (ship.itinerary.ports.length === 0) {
         const initialHUD = document.getElementById("port-status");
         initialHUD.innerHTML = "Waiting for flight plan...";
-        console.log(ship.itinerary.ports.length);
       }
     }
+
+    //
     renderShip() {
       const shipPortIndex = this.ship.itinerary.ports.indexOf(
         this.ship.currentPort
@@ -45,7 +50,7 @@
         `[data-port-index='${shipPortIndex}']`
       );
       const shipElement = document.querySelector("#ship");
-      shipElement.style.top = `${portElement.offsetTop + 60}px`;
+      shipElement.style.top = `${portElement.offsetTop + 70}px`;
       shipElement.style.left = `${portElement.offsetLeft - 15}px`;
     }
 
