@@ -7,7 +7,7 @@
     <title>Cruise Ships</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
-    link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
@@ -34,7 +34,7 @@
       <div id="ports"></div>
       <div id="ship"></div>
     </div>
-    <button id="sailbutton">Launch!</button>
+    <button id="sailbutton" >Launch!</button>
 
     <script src="src/controller.js"></script>
     <script src="src/port.js"></script>
@@ -45,13 +45,12 @@
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
-      // controller.renderPorts(itinerary.ports);
-      // controller.renderShip();
+     
       
      controller.initialiseHUD();
 
       const form = document.querySelector("#form"); 
-      // const port = new Port(userAddedPort);
+      
       function addNewPort() {
         event.preventDefault();
         const newPortItem = document.getElementById("portname").value;
@@ -60,14 +59,9 @@
       
         controller.ship.dock();
         controller.renderPorts();
-       
-         controller.renderShip();
+        controller.renderShip();
          
-         
-         
-         document.getElementById("portname").value = "";
-         
-        console.log(itinerary.ports);
+        document.getElementById("portname").value = "";
       }
        
      
@@ -76,12 +70,9 @@
       } else if (form.attachEvent) {
         form.attachEvent("onsubmit", addNewPort);
       }
+
+   
     </script>
   </body>
 </html>
 
-<!-- [ new Port("Earth"),
-        new Port("Luna"),
-        new Port("Ceres Station"),
-        new Port("Medina Station"),
-        new Port("Ilus")] -->

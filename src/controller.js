@@ -116,6 +116,10 @@
           ship.sail();
           ship.dock();
 
+          //scroll ship into view
+          const shipFocus = document.getElementById("ship");
+          shipFocus.scrollIntoView();
+
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
             this.renderPortStatus(
               `${ship.currentPort.portName}: end of the line`
