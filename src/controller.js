@@ -100,6 +100,11 @@
         hud.innerHTML = "Approaching destination...";
       }
 
+      if (ship.itinerary.ports.length <= 0) {
+        return this.renderCrewComms(
+          `Add planets to visit to start your journey.`
+        );
+      }
       if (!nextPortElement) {
         return this.renderCrewComms(
           `The universe is a big place, but this is as far as you can go.`
@@ -115,8 +120,6 @@
         const shipLeft = parseInt(shipElement.style.left, 10);
 
         if (shipLeft === nextPortElement.offsetLeft - 15) {
-          // const shipFocus = document.getElementById("ship");
-          // // shipFocus.scrollIntoView({ behavior: "smooth" });
           ship.sail();
           document.getElementById("viewport").scrollLeft += 100;
           ship.dock();
