@@ -9,7 +9,7 @@
         sailButton.disabled = true;
         setTimeout(function () {
           sailButton.disabled = false;
-        }, 6000);
+        }, 5000);
       };
 
       document.querySelector("#sailbutton").addEventListener("click", () => {

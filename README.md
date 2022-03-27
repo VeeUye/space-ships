@@ -26,6 +26,7 @@ Use the Add Planet form to add new planets to visit. Launch the ship to take you
 - [x] Add ability to input own itinerary of stations
 - [x] Scroll to ship position
 - [ ] Responsive design
+- [ ] Disable Launch button at end of itinerary
 - [ ] Generate distinct planet image for each new station
 - [ ] Apply transition on scroll to ship
 - [ ] Reposition message bar on dock
