@@ -118,8 +118,9 @@
           const shipFocus = document.getElementById("ship");
 
           ship.sail();
+          document.getElementById("viewport").scrollLeft += 100;
           ship.dock();
-          shipFocus.scrollIntoView();
+          // shipFocus.scrollIntoView({ behavior: "smooth" });
 
           if (currentPortIndex === ship.itinerary.ports.length - 2) {
             this.updateHUD(`${ship.currentPort.portName}: end of the line`);

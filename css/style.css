@@ -16,6 +16,7 @@ body {
   position: absolute;
   overflow-x: auto;
   background-image: url(../images/space-background-big01.png);
+  scroll-behavior: smooth;
 }
 
 #ports {
