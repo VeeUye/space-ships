@@ -19,6 +19,7 @@
       });
     }
 
+    //render background
     initialiseSea() {
       const backgrounds = [
         "./images/space-background-big01.png",
@@ -41,7 +42,7 @@
       }
     }
 
-    //
+    //render ship in relation to port/s
     renderShip() {
       const shipPortIndex = this.ship.itinerary.ports.indexOf(
         this.ship.currentPort
@@ -54,16 +55,17 @@
       shipElement.style.left = `${portElement.offsetLeft - 15}px`;
     }
 
+    //render ports from input array
     renderPorts() {
       const portsElement = document.querySelector("#ports");
       portsElement.style.width = "0px";
-
+      //clear ports and rerender array to prevent duplicates
       if (portsElement.hasChildNodes()) {
         while (portsElement.firstChild) {
           portsElement.removeChild(portsElement.lastChild);
         }
       }
-
+      //renders the ports
       this.ship.itinerary.ports.forEach((port, index) => {
         const newPortElement = document.createElement("div");
         newPortElement.className = "port";
@@ -75,11 +77,12 @@
       });
     }
 
+    //function updates the port-status div on dock()
     renderPortStatus(journeyUpdate) {
       const portStatus = document.querySelector("#port-status");
       portStatus.innerHTML = journeyUpdate;
     }
-
+    //updates the message box
     renderMessage(message) {
       const messageBox = document.createElement("div");
       messageBox.id = "message";
@@ -92,6 +95,7 @@
       }, 2000);
     }
 
+    // function launches ship
     sail() {
       const ship = this.ship;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
@@ -105,7 +109,7 @@
 
       if (!nextPortElement) {
         return this.renderMessage(
-          `You've sailed off the edge of the world and it's turtles all the way down`
+          `The universe is a big place, but this is as far as you can go.`
         );
       }
 
