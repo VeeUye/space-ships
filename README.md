@@ -11,6 +11,10 @@ To run Space Ships in your local environment:
 1. [Clone this repo](https://github.com/VeeUye/space-ships) (instructions on cloning repos [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository))
 2. Open the index.html file in the cloned repo in your preferred browser.
 
+## Instructions
+
+Use the Add Planet form to add new planets to visit. Launch the ship to take you to the next planetary port on your itinerary. The ship will automatically dock as it reaches its destination.
+
 ## Framework
 
 - JavaScript
@@ -19,9 +23,11 @@ To run Space Ships in your local environment:
 
 ## Roadmap
 
-- [ ] Add ability to input own itinerary of stations
+- [x] Add ability to input own itinerary of stations
+- [x] Scroll to ship position
 - [ ] Generate distinct planet image for each new station
-- [ ] Scroll background with ship position
+- [ ] Apply transition on scroll to ship
+- [ ] Reposition message bar on dock
 - [ ] Add sound effects to events
 
 ## Contributions
