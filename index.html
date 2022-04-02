@@ -43,28 +43,15 @@
     <script src="src/port.js"></script>
     <script src="src/itinerary.js"></script>
     <script src="src/ship.js"></script>
+    <script src="src/form.js"></script>
+
     <script>
       const itinerary = new Itinerary([]);
       const ship = new Ship(itinerary);
       const controller = new Controller(ship);
 
-      const form = document.querySelector("#form"); 
-      function addNewPort() {
-        event.preventDefault();
-        const newPortItem = document.getElementById("portname").value;
-        const port = new Port(newPortItem);
-        itinerary.ports.push(port);
-        controller.ship.dock();
-        controller.renderPorts();
-        controller.renderShip();
-        document.getElementById("portname").value = "";
-      }
-
-      if (form.addEventListener) {
-        form.addEventListener("submit", addNewPort, false);
-      } else if (form.attachEvent) {
-        form.attachEvent("onsubmit", addNewPort);
-      }
+      controller.renderPorts();
+      controller.renderShip();
     </script>
   </body>
 </html>
